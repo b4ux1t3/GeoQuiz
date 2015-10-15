@@ -72,6 +72,15 @@ public class QuizActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }
         });
+        nextButton = (Button) findViewById(R.id.next_button);
+        nextButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+        public void onClick(View v){
+                currentIndex = (currentIndex + 1) % questionBank.length;
+                int question = questionBank[currentIndex].getQuestion();
+                questionTextView.setText(question);
+            }
+        });
     }
 
     @Override
